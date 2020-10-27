@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Version;
 @Entity
 public class PlageHoraire {
@@ -20,8 +22,12 @@ public class PlageHoraire {
 	private Long id;
 	@Version
 	private int version;
+	
+	@Temporal(TemporalType.DATE)
 	private Date jourAnnee;
+	@Temporal(TemporalType.DATE)
 	private Date indispoDebut;
+	@Temporal(TemporalType.DATE)
 	private Date indispoFin;
 	private Boolean semaine;
 	@Enumerated
