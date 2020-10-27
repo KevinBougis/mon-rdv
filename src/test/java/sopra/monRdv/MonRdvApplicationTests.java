@@ -31,10 +31,7 @@ import sopra.monRdv.repository.IRendezVousRepository;
 
 @SpringBootTest
 class MonRdvApplicationTests {
-	
-	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-	SimpleDateFormat sdfTime = new SimpleDateFormat("HH:mm");
-	
+
 	@Autowired
 	private ICompteUtilisateurRepository userRepo;
 	@Autowired
@@ -43,7 +40,7 @@ class MonRdvApplicationTests {
 	private IMotifConsultationRepository motifRepo;
 	@Autowired
 	private IPlageHoraireRepository plageRepo;
-
+	@Autowired
 	private IRendezVousRepository rdvRepo;
 	
 	@Autowired
@@ -52,6 +49,7 @@ class MonRdvApplicationTests {
 	@Test
 	void contextLoads() throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat sdfTime = new SimpleDateFormat("HH:mm");
 
 		List<Lieu> lieux = new ArrayList<Lieu>();
 		List<MotifConsultation> motifs = new ArrayList<MotifConsultation>();
@@ -59,13 +57,13 @@ class MonRdvApplicationTests {
 		// Praticien
 		CompteUtilisateur gyneco = new CompteUtilisateur("gynecoMdp", "gyneco", "Ferdinand", "Ahmed",
 				"ahmed.ferdinand@gmail.com", TypeUtilisateur.Praticien, Grade.Pr, Specialite.Gynecologue);
-		userRepo.save(gyneco);
+		gyneco=userRepo.save(gyneco);
 		//Lieu
 		Lieu hopital = new Lieu("Pellegrin", "53 rue de la rivière", "3 Etage", "33000", "Mérignac", "0556374567");
-		lieuRepo.save(hopital);
+		hopital=lieuRepo.save(hopital);
 		//Motif
 		MotifConsultation diagnostique = new MotifConsultation("diagnostique", "30min");
-		motifRepo.save(diagnostique);
+		diagnostique=motifRepo.save(diagnostique);
 		// Plage Horaire
 		Date indispoDebut = new Date();
 		Date indispoFin = new Date();
@@ -78,14 +76,14 @@ class MonRdvApplicationTests {
 		PlageHoraire plageHoraire1 = new PlageHoraire(indispoDebut, indispoFin);
 		PlageHoraire plageHoraire2 = new PlageHoraire(jourAnnee);
 		PlageHoraire plageHoraire3 = new PlageHoraire(true, JourSemaine.Lundi);
-		plageRepo.save(plageHoraire1);
-		plageRepo.save(plageHoraire2);
-		plageRepo.save(plageHoraire3);
+		plageHoraire1=plageRepo.save(plageHoraire1);
+		plageHoraire2=plageRepo.save(plageHoraire2);
+		plageHoraire3=plageRepo.save(plageHoraire3);
 
 		//Lien praticien/lieu
 		lieux.add(hopital);
 		gyneco.setLieux(lieux);
-		userRepo.save(gyneco);
+		gyneco=userRepo.save(gyneco);
 		//Lieu/Motif
 		motifs.add(diagnostique);
 		hopital.setMotifConsultations(motifs);
@@ -95,8 +93,7 @@ class MonRdvApplicationTests {
 		plages.add(plageHoraire2);
 		plages.add(plageHoraire3);
 		hopital.setPlageHoraires(plages);
-		lieuRepo.save(hopital);
-	void contextLoads() throws ParseException {
+		hopital=lieuRepo.save(hopital);
 		
 		//UTILISATEUR PATIENT
 		CompteUtilisateur patient = new CompteUtilisateur("patientMdp", "patient", "Dupont", "Jean", "patient@patient.fr", 
@@ -131,7 +128,11 @@ class MonRdvApplicationTests {
 		
 		rdv1 = rdvRepo.save(rdv1);
 		
+		rdv1.setMotifConsultation(diagnostique);
+		rdv1 = rdvRepo.save(rdv1);
 		
+		plageHoraire2.setCreneauHoraires(creneauHoraires);
+		plageHoraire1=plageRepo.save(plageHoraire2);
 	}
 
 }
