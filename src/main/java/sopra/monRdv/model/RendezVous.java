@@ -4,14 +4,34 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Version;
+
+@Entity
 public class RendezVous {
 
-	
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Version
 	private int version;
 	private Date date;
 	
+	@ManyToMany(mappedBy = "rendezVous")
 	private List<CompteUtilisateur> compteUtilisateur= new ArrayList<CompteUtilisateur>();
+	
+	@ManyToMany
+	@JoinTable(
+	name = "rdvBrique",
+	joinColumns = @JoinColumn(name = "rdv_id"),
+	inverseJoinColumns = @JoinColumn(name = "creneau_id")
+			)
+	
 	private List<CreneauHoraire> creneauHoraire= new ArrayList<CreneauHoraire>();
 	private MotifConsultation motifConsultation;
 	

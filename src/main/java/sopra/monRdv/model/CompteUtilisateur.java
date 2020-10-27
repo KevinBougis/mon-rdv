@@ -3,9 +3,22 @@ package sopra.monRdv.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Version;
+	
+@Entity
 public class CompteUtilisateur {
-
+	
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Version
 	private int version;
 	private String mdp;
 	private String identifiant;
@@ -13,11 +26,26 @@ public class CompteUtilisateur {
 	private String prenom;
 	private String mail;
 	private String telephone;
+	@Enumerated
 	private TypeUtilisateur typeUtilisateur;
+	@Enumerated
 	private Grade grade;
+	@Enumerated
 	private Specialite specialite;
+	@ManyToMany
+	@JoinTable (
+	name="userRdv", 
+	joinColumns = @JoinColumn(name = "compteUtilisateur_id"),
+	inverseJoinColumns = @JoinColumn(name = "rdv_id"))
 	private List<RendezVous> rendezVous= new ArrayList<RendezVous>();
+	
+	@ManyToMany
+	@JoinTable (
+	name = "userPlace",
+	joinColumns = @JoinColumn(name = "compteUtilisateur_id"),
+	inverseJoinColumns = @JoinColumn(name = "lieu_id"))
 	private List<Lieu> lieu= new ArrayList<Lieu>();
+	
 	
 	public CompteUtilisateur() {
 		super();
