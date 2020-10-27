@@ -29,7 +29,7 @@ public class RendezVous {
 	@JoinTable(
 	name = "rdvBrique",
 	joinColumns = @JoinColumn(name = "rdv_id"),
-	inverseJoinColumns = @JoinColumn(name = "creneau_id")
+	inverseJoinColumns = @JoinColumn(name = "creneau_id")                   
 			)
 	
 	private List<CreneauHoraire> creneauHoraire= new ArrayList<CreneauHoraire>();
