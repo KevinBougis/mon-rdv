@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
 @Entity
@@ -18,7 +20,9 @@ public class CreneauHoraire {
 	private Long id;
 	@Version
 	private int version;
+	@Temporal(TemporalType.TIME)
 	private Date dtDebut;
+	@Temporal(TemporalType.TIME)
 	private Date dtFin;
 	@ManyToMany(mappedBy = "creneauHoraires")
 	private List<RendezVous> rendezVous = new ArrayList<RendezVous>();
