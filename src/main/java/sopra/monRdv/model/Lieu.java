@@ -48,11 +48,9 @@ public class Lieu {
 
 
 
-	public Lieu(Long id, int version, String intitule, String rue, String complement, String codePostal, String ville,
+	public Lieu(String intitule, String rue, String complement, String codePostal, String ville,
 			String telephone) {
 		super();
-		this.id = id;
-		this.version = version;
 		this.intitule = intitule;
 		this.rue = rue;
 		this.complement = complement;

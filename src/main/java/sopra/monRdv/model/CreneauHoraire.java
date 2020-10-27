@@ -30,10 +30,8 @@ public class CreneauHoraire {
 	}
 
 
-	public CreneauHoraire(Long id, int version, Date dtDebut, Date dtFin) {
+	public CreneauHoraire(Date dtDebut, Date dtFin) {
 		super();
-		this.id = id;
-		this.version = version;
 		this.dtDebut = dtDebut;
 		this.dtFin = dtFin;
 	}

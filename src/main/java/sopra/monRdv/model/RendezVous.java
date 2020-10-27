@@ -42,10 +42,8 @@ public class RendezVous {
 		super();
 	}
 	
-	public RendezVous(Long id, int version, Date date) {
+	public RendezVous(Date date) {
 		super();
-		this.id = id;
-		this.version = version;
 		this.date = date;
 	}
 

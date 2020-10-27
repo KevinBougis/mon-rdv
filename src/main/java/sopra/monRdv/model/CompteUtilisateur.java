@@ -53,11 +53,9 @@ public class CompteUtilisateur {
 
 
 	
-public CompteUtilisateur(Long id, int version, String mdp, String identifiant, String nom, String prenom,
+public CompteUtilisateur(String mdp, String identifiant, String nom, String prenom,
 			String mail, String telephone, TypeUtilisateur typeUtilisateur, Grade grade, Specialite specialite) {
 		super();
-		this.id = id;
-		this.version = version;
 		this.mdp = mdp;
 		this.identifiant = identifiant;
 		this.nom = nom;
@@ -76,21 +74,17 @@ public CompteUtilisateur(Long id, int version, String mdp, String identifiant, S
 	
 	
 //Constructeur Admin
-	public CompteUtilisateur(Long id, int version, String mdp, String identifiant) {
+	public CompteUtilisateur(String mdp, String identifiant) {
 	super();
-	this.id = id;
-	this.version = version;
 	this.mdp = mdp;
 	this.identifiant = identifiant;
 }
 
 
 	//Constructeur Patient
-	public CompteUtilisateur(Long id, int version, String mdp, String identifiant, String nom, String prenom, String mail,
+	public CompteUtilisateur(String mdp, String identifiant, String nom, String prenom, String mail,
 		String telephone, TypeUtilisateur typeUtilisateur) {
 	super();
-	this.id = id;
-	this.version = version;
 	this.mdp = mdp;
 	this.identifiant = identifiant;
 	this.nom = nom;
@@ -102,11 +96,9 @@ public CompteUtilisateur(Long id, int version, String mdp, String identifiant, S
 
 
 	//Constructeur Praticien
-	public CompteUtilisateur(Long id, int version, String mdp, String identifiant, String nom, String prenom,
+	public CompteUtilisateur(String mdp, String identifiant, String nom, String prenom,
 			String mail, TypeUtilisateur typeUtilisateur, Grade grade, Specialite specialite) {
 		super();
-		this.id = id;
-		this.version = version;
 		this.mdp = mdp;
 		this.identifiant = identifiant;
 		this.nom = nom;
