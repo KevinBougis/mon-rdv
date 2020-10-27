@@ -19,15 +19,22 @@ import sopra.monRdv.model.Lieu;
 import sopra.monRdv.model.MotifConsultation;
 import sopra.monRdv.model.PlageHoraire;
 import sopra.monRdv.model.Specialite;
+import sopra.monRdv.model.CreneauHoraire;
+import sopra.monRdv.model.RendezVous;
 import sopra.monRdv.model.TypeUtilisateur;
 import sopra.monRdv.repository.ICompteUtilisateurRepository;
 import sopra.monRdv.repository.ILieuRepository;
 import sopra.monRdv.repository.IMotifConsultationRepository;
 import sopra.monRdv.repository.IPlageHoraireRepository;
+import sopra.monRdv.repository.ICreneauHoraireRepository;
+import sopra.monRdv.repository.IRendezVousRepository;
 
 @SpringBootTest
 class MonRdvApplicationTests {
-
+	
+	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	SimpleDateFormat sdfTime = new SimpleDateFormat("HH:mm");
+	
 	@Autowired
 	private ICompteUtilisateurRepository userRepo;
 	@Autowired
@@ -37,6 +44,11 @@ class MonRdvApplicationTests {
 	@Autowired
 	private IPlageHoraireRepository plageRepo;
 
+	private IRendezVousRepository rdvRepo;
+	
+	@Autowired
+	private ICreneauHoraireRepository creneauRepo;
+	
 	@Test
 	void contextLoads() throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -84,6 +96,42 @@ class MonRdvApplicationTests {
 		plages.add(plageHoraire3);
 		hopital.setPlageHoraires(plages);
 		lieuRepo.save(hopital);
+	void contextLoads() throws ParseException {
+		
+		//UTILISATEUR PATIENT
+		CompteUtilisateur patient = new CompteUtilisateur("patientMdp", "patient", "Dupont", "Jean", "patient@patient.fr", 
+				"05555555", TypeUtilisateur.Patient);
+		
+		patient = userRepo.save(patient);
+		
+		//RDV RDV1 AFFECTE A PATIENT
+		List<RendezVous> rendezVouss = new ArrayList<RendezVous>();
+		
+		RendezVous rdv1 = new RendezVous(sdf.parse("27/10/2020"));
+		
+		rendezVouss.add(rdv1);
+		
+		rdv1 = rdvRepo.save(rdv1);
+		
+		patient.setRendezVous(rendezVouss);
+		
+		patient = userRepo.save(patient);
+		
+		
+		//CRENEAU AFFECTE A RDV1
+		List<CreneauHoraire> creneauHoraires = new ArrayList<CreneauHoraire>();
+		
+		CreneauHoraire creneau1 = new CreneauHoraire(sdfTime.parse("8:00"), sdfTime.parse("8:15"));
+		
+		creneauHoraires.add(creneau1);
+		
+		creneau1 = creneauRepo.save(creneau1);
+		
+		rdv1.setCreneauHoraires(creneauHoraires);
+		
+		rdv1 = rdvRepo.save(rdv1);
+		
+		
 	}
 
 }
