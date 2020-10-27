@@ -45,15 +45,24 @@ public class PlageHoraire {
 	public PlageHoraire() {
 		super();
 	}
-	public PlageHoraire(Date jourAnnee, Date indispoDebut, Date indispoFin, Boolean semaine,
-			JourSemaine jourSemaine) {
+	
+	public PlageHoraire(Date jourAnnee) {
 		super();
 		this.jourAnnee = jourAnnee;
+	}
+
+	public PlageHoraire(Date indispoDebut, Date indispoFin) {
+		super();
 		this.indispoDebut = indispoDebut;
 		this.indispoFin = indispoFin;
+	}
+
+	public PlageHoraire(Boolean semaine, JourSemaine jourSemaine) {
+		super();
 		this.semaine = semaine;
 		this.jourSemaine = jourSemaine;
 	}
+
 	public Long getId() {
 		return id;
 	}
