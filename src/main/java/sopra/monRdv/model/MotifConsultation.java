@@ -21,7 +21,7 @@ public class MotifConsultation {
 	
 	@OneToMany(mappedBy="motifConsultation")
 	private List<RendezVous> rendezVous= new ArrayList<RendezVous>();
-	@ManyToMany(mappedBy="motifconsultations")
+	@ManyToMany(mappedBy="motifConsultations")
 	private List<Lieu> lieux= new ArrayList<Lieu>();
 	
 	public MotifConsultation() {
