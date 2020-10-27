@@ -3,10 +3,21 @@ package sopra.monRdv.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Version;
+
+@Entity
 public class Lieu {
 
-	
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Version
 	private int version;
 	private String intitule;
 	private String rue;
@@ -14,9 +25,20 @@ public class Lieu {
 	private String codePostal;
 	private String ville;
 	private String telephone;
-	private List<MotifConsultation> motifConsultation= new ArrayList<MotifConsultation>();
-	private List<CompteUtilisateur> compteUtilisateur= new ArrayList<CompteUtilisateur>();
-	private List<PlageHoraire> plageHoraire= new ArrayList<PlageHoraire>();
+	@ManyToMany
+	@JoinTable (
+	name="lieuMotif", 
+	joinColumns = @JoinColumn(name = "lieu_id"),
+	inverseJoinColumns = @JoinColumn(name = "motif_id"))
+	private List<MotifConsultation> motifConsultations= new ArrayList<MotifConsultation>();
+	@ManyToMany(mappedBy="lieux")
+	private List<CompteUtilisateur> compteUtilisateurs= new ArrayList<CompteUtilisateur>();
+	@ManyToMany
+	@JoinTable (
+	name="lieuPlage", 
+	joinColumns = @JoinColumn(name = "lieu_id"),
+	inverseJoinColumns = @JoinColumn(name = "plage_id"))
+	private List<PlageHoraire> plageHoraires= new ArrayList<PlageHoraire>();
 	
 	
 	
@@ -137,38 +159,38 @@ public class Lieu {
 
 
 
-	public List<MotifConsultation> getMotifConsultation() {
-		return motifConsultation;
+	public List<MotifConsultation> getMotifConsultations() {
+		return motifConsultations;
 	}
 
 
 
-	public void setMotifConsultation(List<MotifConsultation> motifConsultation) {
-		this.motifConsultation = motifConsultation;
+	public void setMotifConsultations(List<MotifConsultation> motifConsultations) {
+		this.motifConsultations = motifConsultations;
 	}
 
 
 
-	public List<CompteUtilisateur> getCompteUtilisateur() {
-		return compteUtilisateur;
+	public List<CompteUtilisateur> getCompteUtilisateurs() {
+		return compteUtilisateurs;
 	}
 
 
 
-	public void setCompteUtilisateur(List<CompteUtilisateur> compteUtilisateur) {
-		this.compteUtilisateur = compteUtilisateur;
+	public void setCompteUtilisateurs(List<CompteUtilisateur> compteUtilisateurs) {
+		this.compteUtilisateurs = compteUtilisateurs;
 	}
 
 
 
-	public List<PlageHoraire> getPlageHoraire() {
-		return plageHoraire;
+	public List<PlageHoraire> getPlageHoraires() {
+		return plageHoraires;
 	}
 
 
 
-	public void setPlageHoraire(List<PlageHoraire> plageHoraire) {
-		this.plageHoraire = plageHoraire;
+	public void setPlageHoraires(List<PlageHoraire> plageHoraires) {
+		this.plageHoraires = plageHoraires;
 	}
 
 

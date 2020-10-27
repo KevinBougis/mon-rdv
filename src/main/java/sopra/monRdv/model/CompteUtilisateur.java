@@ -44,7 +44,7 @@ public class CompteUtilisateur {
 	name = "userPlace",
 	joinColumns = @JoinColumn(name = "compteUtilisateur_id"),
 	inverseJoinColumns = @JoinColumn(name = "lieu_id"))
-	private List<Lieu> lieu= new ArrayList<Lieu>();
+	private List<Lieu> lieux= new ArrayList<Lieu>();
 	
 	
 	public CompteUtilisateur() {
@@ -242,14 +242,14 @@ public CompteUtilisateur(Long id, int version, String mdp, String identifiant, S
 
 
 
-	public List<Lieu> getLieu() {
-		return lieu;
+	public List<Lieu> getLieux() {
+		return lieux;
 	}
 
 
 
-	public void setLieu(List<Lieu> lieu) {
-		this.lieu = lieu;
+	public void setLieux(List<Lieu> lieux) {
+		this.lieux = lieux;
 	}
 
 

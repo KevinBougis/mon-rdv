@@ -4,19 +4,37 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Version;
+@Entity
 public class PlageHoraire {
 
-	
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Version
 	private int version;
 	private Date jourAnnee;
 	private Date indispoDebut;
 	private Date indispoFin;
 	private Boolean semaine;
+	@Enumerated
 	private JourSemaine jourSemaine;
 	
-	private List<Lieu> lieu= new ArrayList<Lieu>();
-	private List<CreneauHoraire> creneauHoraire= new ArrayList<CreneauHoraire>();
+	@ManyToMany(mappedBy="plageHoraires")
+	private List<Lieu> lieux= new ArrayList<Lieu>();
+	@ManyToMany
+	@JoinTable (
+	name = "plageBrique",
+	joinColumns = @JoinColumn(name = "plage_id"),
+	inverseJoinColumns = @JoinColumn(name = "creneau_id"))
+	private List<CreneauHoraire> creneauHoraires= new ArrayList<CreneauHoraire>();
 	
 	public PlageHoraire() {
 		super();
@@ -76,17 +94,18 @@ public class PlageHoraire {
 	}
 	
 	
-	public List<Lieu> getLieu() {
-		return lieu;
+	
+	public List<Lieu> getLieux() {
+		return lieux;
 	}
-	public void setLieu(List<Lieu> lieu) {
-		this.lieu = lieu;
+	public void setLieux(List<Lieu> lieux) {
+		this.lieux = lieux;
 	}
-	public List<CreneauHoraire> getCreneauHoraire() {
-		return creneauHoraire;
+	public List<CreneauHoraire> getCreneauHoraires() {
+		return creneauHoraires;
 	}
-	public void setCreneauHoraire(List<CreneauHoraire> creneauHoraire) {
-		this.creneauHoraire = creneauHoraire;
+	public void setCreneauHoraires(List<CreneauHoraire> creneauHoraires) {
+		this.creneauHoraires = creneauHoraires;
 	}
 	@Override
 	public String toString() {

@@ -3,15 +3,26 @@ package sopra.monRdv.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Version;
+@Entity
 public class MotifConsultation {
-
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Version
 	private int version;
 	private String nom;
 	private String duree;
 	
+	@OneToMany(mappedBy="motifConsultation")
 	private List<RendezVous> rendezVous= new ArrayList<RendezVous>();
-	private List<Lieu> lieu= new ArrayList<Lieu>();
+	@ManyToMany(mappedBy="motifconsultations")
+	private List<Lieu> lieux= new ArrayList<Lieu>();
 	
 	public MotifConsultation() {
 		super();
@@ -55,11 +66,12 @@ public class MotifConsultation {
 	public void setRendezVous(List<RendezVous> rendezVous) {
 		this.rendezVous = rendezVous;
 	}
-	public List<Lieu> getLieu() {
-		return lieu;
+	
+	public List<Lieu> getLieux() {
+		return lieux;
 	}
-	public void setLieu(List<Lieu> lieu) {
-		this.lieu = lieu;
+	public void setLieux(List<Lieu> lieux) {
+		this.lieux = lieux;
 	}
 	@Override
 	public String toString() {

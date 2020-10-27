@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
 @Entity
@@ -23,7 +24,7 @@ public class RendezVous {
 	private Date date;
 	
 	@ManyToMany(mappedBy = "rendezVous")
-	private List<CompteUtilisateur> compteUtilisateur= new ArrayList<CompteUtilisateur>();
+	private List<CompteUtilisateur> compteUtilisateurs= new ArrayList<CompteUtilisateur>();
 	
 	@ManyToMany
 	@JoinTable(
@@ -32,7 +33,9 @@ public class RendezVous {
 	inverseJoinColumns = @JoinColumn(name = "creneau_id")                   
 			)
 	
-	private List<CreneauHoraire> creneauHoraire= new ArrayList<CreneauHoraire>();
+	private List<CreneauHoraire> creneauHoraires= new ArrayList<CreneauHoraire>();
+	@ManyToOne
+	@JoinColumn (name = "motif_id")
 	private MotifConsultation motifConsultation;
 	
 	public RendezVous() {
@@ -70,21 +73,21 @@ public class RendezVous {
 		this.date = date;
 	}
 
-	
-	public List<CompteUtilisateur> getCompteUtilisateur() {
-		return compteUtilisateur;
+
+	public List<CompteUtilisateur> getCompteUtilisateurs() {
+		return compteUtilisateurs;
 	}
 
-	public void setCompteUtilisateur(List<CompteUtilisateur> compteUtilisateur) {
-		this.compteUtilisateur = compteUtilisateur;
+	public void setCompteUtilisateurs(List<CompteUtilisateur> compteUtilisateurs) {
+		this.compteUtilisateurs = compteUtilisateurs;
 	}
 
-	public List<CreneauHoraire> getCreneauHoraire() {
-		return creneauHoraire;
+	public List<CreneauHoraire> getCreneauHoraires() {
+		return creneauHoraires;
 	}
 
-	public void setCreneauHoraire(List<CreneauHoraire> creneauHoraire) {
-		this.creneauHoraire = creneauHoraire;
+	public void setCreneauHoraires(List<CreneauHoraire> creneauHoraires) {
+		this.creneauHoraires = creneauHoraires;
 	}
 
 	public MotifConsultation getMotifConsultation() {
