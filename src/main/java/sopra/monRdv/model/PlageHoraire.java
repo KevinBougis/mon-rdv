@@ -39,11 +39,9 @@ public class PlageHoraire {
 	public PlageHoraire() {
 		super();
 	}
-	public PlageHoraire(Long id, int version, Date jourAnnee, Date indispoDebut, Date indispoFin, Boolean semaine,
+	public PlageHoraire(Date jourAnnee, Date indispoDebut, Date indispoFin, Boolean semaine,
 			JourSemaine jourSemaine) {
 		super();
-		this.id = id;
-		this.version = version;
 		this.jourAnnee = jourAnnee;
 		this.indispoDebut = indispoDebut;
 		this.indispoFin = indispoFin;

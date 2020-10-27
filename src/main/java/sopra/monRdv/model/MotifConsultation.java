@@ -27,10 +27,8 @@ public class MotifConsultation {
 	public MotifConsultation() {
 		super();
 	}
-	public MotifConsultation(Long id, int version, String nom, String duree) {
+	public MotifConsultation(String nom, String duree) {
 		super();
-		this.id = id;
-		this.version = version;
 		this.nom = nom;
 		this.duree = duree;
 	}
