@@ -12,21 +12,29 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class CreneauHoraire {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Temporal(TemporalType.TIME)
+	@JsonView(Views.ViewCommon.class)
 	private Date dtDebut;
 	@Temporal(TemporalType.TIME)
+	@JsonView(Views.ViewCommon.class)
 	private Date dtFin;
 	@ManyToMany(mappedBy = "creneauHoraires")
+	@JsonView(Views.ViewCreneauHoraire.class)
 	private List<RendezVous> rendezVous = new ArrayList<RendezVous>();
 	@ManyToMany(mappedBy = "creneauHoraires")
+	@JsonView(Views.ViewCreneauHoraire.class)
 	private List<PlageHoraire> plageHoraires = new ArrayList<PlageHoraire>();
 
 	public CreneauHoraire() {

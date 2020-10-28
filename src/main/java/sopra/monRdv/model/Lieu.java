@@ -11,33 +11,46 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Lieu {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
+	@JsonView(Views.ViewCommon.class)
 	private String intitule;
+	@JsonView(Views.ViewCommon.class)
 	private String rue;
+	@JsonView(Views.ViewCommon.class)
 	private String complement;
+	@JsonView(Views.ViewCommon.class)
 	private String codePostal;
+	@JsonView(Views.ViewCommon.class)
 	private String ville;
+	@JsonView(Views.ViewCommon.class)
 	private String telephone;
 	@ManyToMany
 	@JoinTable (
 	name="lieuMotif", 
 	joinColumns = @JoinColumn(name = "lieu_id"),
 	inverseJoinColumns = @JoinColumn(name = "motif_id"))
+	@JsonView(Views.ViewLieu.class)
 	private List<MotifConsultation> motifConsultations= new ArrayList<MotifConsultation>();
 	@ManyToMany(mappedBy="lieux")
+	@JsonView(Views.ViewLieu.class)
 	private List<CompteUtilisateur> compteUtilisateurs= new ArrayList<CompteUtilisateur>();
 	@ManyToMany
 	@JoinTable (
 	name="lieuPlage", 
 	joinColumns = @JoinColumn(name = "lieu_id"),
 	inverseJoinColumns = @JoinColumn(name = "plage_id"))
+	@JsonView(Views.ViewLieu.class)
 	private List<PlageHoraire> plageHoraires= new ArrayList<PlageHoraire>();
 	
 	

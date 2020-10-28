@@ -15,19 +15,25 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class RendezVous {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	
 	@Temporal(TemporalType.DATE)
+	@JsonView(Views.ViewCommon.class)
 	private Date date;
 	
 	@ManyToMany(mappedBy = "rendezVous")
+	@JsonView(Views.ViewRdv.class)
 	private List<CompteUtilisateur> compteUtilisateurs= new ArrayList<CompteUtilisateur>();
 	
 	@ManyToMany
@@ -36,10 +42,11 @@ public class RendezVous {
 	joinColumns = @JoinColumn(name = "rdv_id"),
 	inverseJoinColumns = @JoinColumn(name = "creneau_id")                   
 			)
-	
+	@JsonView(Views.ViewRdv.class)
 	private List<CreneauHoraire> creneauHoraires= new ArrayList<CreneauHoraire>();
 	@ManyToOne
 	@JoinColumn (name = "motif_id")
+	@JsonView(Views.ViewRdv.class)
 	private MotifConsultation motifConsultation;
 	
 	public RendezVous() {
