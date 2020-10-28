@@ -17,32 +17,30 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import sopra.monRdv.model.CompteUtilisateur;
+import sopra.monRdv.model.PlageHoraire;
 import sopra.monRdv.model.Views;
-import sopra.monRdv.repository.ICompteUtilisateurRepository;
-
+import sopra.monRdv.repository.IPlageHoraireRepository;
 
 @RestController
-@RequestMapping("/api/user")
-public class CompteUtilisateurRestController {
+@RequestMapping("/api/plage")
+public class PlageHoraireRestController {
 
-	@Autowired
-	private ICompteUtilisateurRepository userRepo;
 	
+	@Autowired
+	private IPlageHoraireRepository plageRepo;
 	
 	@GetMapping("")
-	@JsonView(Views.ViewCompteUtilisateur.class)
-	public List<CompteUtilisateur> findAll() {
-	return userRepo.findAll();
+	@JsonView(Views.ViewPlageHoraire.class)
+	public List<PlageHoraire> findAll() {
+	return plageRepo.findAll();
 	}
 	
-	
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewCompteUtilisateur.class)
-	public CompteUtilisateur findById(@PathVariable Long id) {
-		Optional<CompteUtilisateur> optUser = userRepo.findById(id);
-		if (optUser.isPresent()) {
-			return optUser.get();
+	@JsonView(Views.ViewPlageHoraire.class)
+	public PlageHoraire findById(@PathVariable Long id) {
+		Optional<PlageHoraire> optPlage = plageRepo.findById(id);
+		if (optPlage.isPresent()) {
+			return optPlage.get();
 		}
 		else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, 
@@ -51,29 +49,27 @@ public class CompteUtilisateurRestController {
 	}
 	
 	@PostMapping("")
-	@JsonView(Views.ViewCompteUtilisateur.class)
-	public CompteUtilisateur create(@RequestBody CompteUtilisateur user) {
-	user = userRepo.save(user);
-	
-	return user;
+	@JsonView(Views.ViewPlageHoraire.class)
+	public PlageHoraire create(@RequestBody PlageHoraire plage) {
+	plage = plageRepo.save(plage);
+	return plage;
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewCompteUtilisateur.class)
-	public CompteUtilisateur update(@PathVariable Long id, 
-			@RequestBody CompteUtilisateur user) {
-		if(!userRepo.existsById(id)) {
+	@JsonView(Views.ViewPlageHoraire.class)
+	public PlageHoraire update(@PathVariable Long id, 
+			@RequestBody PlageHoraire plage) {
+		if(!plageRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
-		user=userRepo.save(user);
-		return user;
+		plage=plageRepo.save(plage);
+		return plage;	
 	}
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		
-		userRepo.deleteById(id);
+		plageRepo.deleteById(id);
 	}
-	
 	
 }

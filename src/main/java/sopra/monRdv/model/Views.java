@@ -6,10 +6,13 @@ public class Views {
 	
 	public static class ViewCompteUtilisateur extends ViewCommon {};
 	
+	public static class ViewMotifConsultation extends ViewCommon {};
+	
 	public static class ViewLieu extends ViewCommon {};
 	
 	public static class ViewCreneauHoraire extends ViewCommon {};
 	
 	public static class ViewRdv extends ViewCommon {};
 
+	public static class ViewPlageHoraire extends ViewCommon {};
 }
