@@ -5,5 +5,8 @@ public class Views {
 	public static class ViewCommon{};
 	
 	public static class ViewCompteUtilisateur extends ViewCommon {};
+	
+	public static class ViewMotifConsultation extends ViewCommon {};
 
+	public static class ViewPlageHoraire extends ViewCommon {};
 }

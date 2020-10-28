@@ -14,28 +14,39 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonView;
 @Entity
 public class PlageHoraire {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	
 	@Temporal(TemporalType.DATE)
+	@JsonView(Views.ViewCommon.class)
 	private Date jourAnnee;
 	@Temporal(TemporalType.DATE)
+	@JsonView(Views.ViewCommon.class)
 	private Date indispoDebut;
 	@Temporal(TemporalType.DATE)
+	@JsonView(Views.ViewCommon.class)
 	private Date indispoFin;
+	@JsonView(Views.ViewCommon.class)
 	private Boolean semaine;
 	@Enumerated
+	@JsonView(Views.ViewCommon.class)
 	private JourSemaine jourSemaine;
 	
 	@ManyToMany(mappedBy="plageHoraires")
+	@JsonView(Views.ViewCommon.class)
 	private List<Lieu> lieux= new ArrayList<Lieu>();
 	@ManyToMany
+	@JsonView(Views.ViewCommon.class)
 	@JoinTable (
 	name = "plageBrique",
 	joinColumns = @JoinColumn(name = "plage_id"),
