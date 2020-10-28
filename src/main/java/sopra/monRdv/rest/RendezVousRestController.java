@@ -17,6 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import sopra.monRdv.model.PlageHoraire;
 import sopra.monRdv.model.RendezVous;
 import sopra.monRdv.model.Views;
 import sopra.monRdv.repository.IRendezVousRepository;
@@ -74,5 +75,11 @@ public class RendezVousRestController {
 	public void delete(@PathVariable Long id) {
 		
 		rdvRepo.deleteById(id);
+	}
+	
+	@GetMapping("/by-praticien/{id}")
+	@JsonView(Views.ViewRdv.class)
+	public List<RendezVous> findByPraticienId(@PathVariable Long id) {
+	return rdvRepo.findByPraticienId(id);
 	}
 }

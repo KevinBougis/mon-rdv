@@ -18,6 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import sopra.monRdv.model.CompteUtilisateur;
+import sopra.monRdv.model.Specialite;
 import sopra.monRdv.model.Views;
 import sopra.monRdv.repository.ICompteUtilisateurRepository;
 
@@ -75,5 +76,15 @@ public class CompteUtilisateurRestController {
 		userRepo.deleteById(id);
 	}
 	
+	@GetMapping("/by-Specialite/{specialite}")
+	@JsonView(Views.ViewCompteUtilisateur.class)
+	public List<CompteUtilisateur> findBySpecialite(@PathVariable Specialite specialite) {
+	return userRepo.findBySpecialite(specialite);
+	}
 	
+	@GetMapping("/by-Ville/{ville}")
+	@JsonView(Views.ViewCompteUtilisateur.class)
+	public List<CompteUtilisateur> findByVille(@PathVariable String ville) {
+	return userRepo.findByVille(ville);
+	}
 }

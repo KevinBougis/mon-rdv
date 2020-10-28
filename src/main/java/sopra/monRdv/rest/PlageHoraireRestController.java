@@ -17,6 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import sopra.monRdv.model.CreneauHoraire;
 import sopra.monRdv.model.PlageHoraire;
 import sopra.monRdv.model.Views;
 import sopra.monRdv.repository.IPlageHoraireRepository;
@@ -72,4 +73,15 @@ public class PlageHoraireRestController {
 		plageRepo.deleteById(id);
 	}
 	
+	@GetMapping("/by-praticien/{id}")
+	@JsonView(Views.ViewPlageHoraire.class)
+	public List<PlageHoraire> findByPraticienId(@PathVariable Long id) {
+	return plageRepo.findByPraticienId(id);
+	}
+	
+	@GetMapping("/by-praticienAndLieu/{pr_id}|{l_id}")
+	@JsonView(Views.ViewPlageHoraire.class)
+	public List<PlageHoraire> findByPraticienAndLieu(@PathVariable Long pr_id,@PathVariable Long l_id) {
+	return plageRepo.findByPraticienAndLieu(pr_id,l_id);
+	}
 }

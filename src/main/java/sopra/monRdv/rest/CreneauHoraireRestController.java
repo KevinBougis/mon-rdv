@@ -17,7 +17,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import sopra.monRdv.model.CompteUtilisateur;
 import sopra.monRdv.model.CreneauHoraire;
+import sopra.monRdv.model.Specialite;
 import sopra.monRdv.model.Views;
 import sopra.monRdv.repository.ICreneauHoraireRepository;
 
@@ -73,5 +75,17 @@ public class CreneauHoraireRestController {
 	public void delete(@PathVariable Long id) {
 		
 		creneauRepo.deleteById(id);
+	}
+	
+	@GetMapping("/by-Rdv/{id}")
+	@JsonView(Views.ViewCreneauHoraire.class)
+	public List<CreneauHoraire> findByRdv(@PathVariable Long id) {
+	return creneauRepo.findByRdv(id);
+	}
+	
+	@GetMapping("/by-plageHoraire/{id}")
+	@JsonView(Views.ViewCreneauHoraire.class)
+	public List<CreneauHoraire> findByPlageHoraire(@PathVariable Long id) {
+	return creneauRepo.findByPlageHoraire(id);
 	}
 }
