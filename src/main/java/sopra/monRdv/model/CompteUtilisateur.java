@@ -11,28 +11,42 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonView;
 	
 @Entity
 public class CompteUtilisateur {
 	
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
+	@JsonView(Views.ViewCommon.class)
 	private String mdp;
+	@JsonView(Views.ViewCommon.class)
 	private String identifiant;
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
+	@JsonView(Views.ViewCommon.class)
 	private String prenom;
+	@JsonView(Views.ViewCommon.class)
 	private String mail;
+	@JsonView(Views.ViewCommon.class)
 	private String telephone;
 	@Enumerated
+	@JsonView(Views.ViewCommon.class)
 	private TypeUtilisateur typeUtilisateur;
 	@Enumerated
+	@JsonView(Views.ViewCommon.class)
 	private Grade grade;
 	@Enumerated
+	@JsonView(Views.ViewCommon.class)
 	private Specialite specialite;
 	@ManyToMany
+	@JsonView(Views.ViewCompteUtilisateur.class)
 	@JoinTable (
 	name="userRdv", 
 	joinColumns = @JoinColumn(name = "compteUtilisateur_id"),
@@ -40,6 +54,7 @@ public class CompteUtilisateur {
 	private List<RendezVous> rendezVous= new ArrayList<RendezVous>();
 	
 	@ManyToMany
+	@JsonView(Views.ViewCompteUtilisateur.class)
 	@JoinTable (
 	name = "userPlace",
 	joinColumns = @JoinColumn(name = "compteUtilisateur_id"),
