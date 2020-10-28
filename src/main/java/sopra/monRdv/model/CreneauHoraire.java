@@ -12,6 +12,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
@@ -25,16 +28,16 @@ public class CreneauHoraire {
 	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Temporal(TemporalType.TIME)
+	@JsonFormat(pattern="HH:mm",locale="fr-FR",timezone = "UTC")
 	@JsonView(Views.ViewCommon.class)
 	private Date dtDebut;
 	@Temporal(TemporalType.TIME)
+	@JsonFormat(pattern="HH:mm",locale="fr-FR",timezone = "UTC")
 	@JsonView(Views.ViewCommon.class)
 	private Date dtFin;
 	@ManyToMany(mappedBy = "creneauHoraires")
-	@JsonView(Views.ViewCreneauHoraire.class)
 	private List<RendezVous> rendezVous = new ArrayList<RendezVous>();
 	@ManyToMany(mappedBy = "creneauHoraires")
-	@JsonView(Views.ViewCreneauHoraire.class)
 	private List<PlageHoraire> plageHoraires = new ArrayList<PlageHoraire>();
 
 	public CreneauHoraire() {

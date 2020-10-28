@@ -15,6 +15,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonView;
 @Entity
 public class PlageHoraire {
@@ -28,12 +30,15 @@ public class PlageHoraire {
 	private int version;
 	
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@JsonView(Views.ViewCommon.class)
 	private Date jourAnnee;
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@JsonView(Views.ViewCommon.class)
 	private Date indispoDebut;
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@JsonView(Views.ViewCommon.class)
 	private Date indispoFin;
 	@JsonView(Views.ViewCommon.class)
