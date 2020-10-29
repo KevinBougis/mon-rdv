@@ -77,9 +77,9 @@ public class RendezVousRestController {
 		rdvRepo.deleteById(id);
 	}
 	
-	@GetMapping("/by-praticien/{id}")
-	@JsonView(Views.ViewRdv.class)
-	public List<RendezVous> findByPraticienId(@PathVariable Long id) {
-	return rdvRepo.findByPraticienId(id);
-	}
+//	@GetMapping("/by-praticien/{id}")
+//	@JsonView(Views.ViewRdv.class)
+//	public List<RendezVous> findByPraticienId(@PathVariable Long id) {
+//	return rdvRepo.findByPraticienId(id);
+//	}
 }

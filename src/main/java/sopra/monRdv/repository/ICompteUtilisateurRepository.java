@@ -13,6 +13,6 @@ public interface ICompteUtilisateurRepository extends JpaRepository<CompteUtilis
 	
 	List<CompteUtilisateur> findBySpecialite(Specialite specialite);
 	
-	@Query("select cu from CompteUtilisateur cu join cu.lieu l  where l.ville = :town")
-	List<CompteUtilisateur> findByVille(@Param("town")String ville);
+//	@Query("select cu from CompteUtilisateur cu join cu.lieu l  where l.ville = :town")
+//	List<CompteUtilisateur> findByVille(@Param("town")String ville);
 }

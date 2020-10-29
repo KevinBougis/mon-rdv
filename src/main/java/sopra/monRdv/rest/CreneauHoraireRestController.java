@@ -77,15 +77,15 @@ public class CreneauHoraireRestController {
 		creneauRepo.deleteById(id);
 	}
 	
-	@GetMapping("/by-Rdv/{id}")
-	@JsonView(Views.ViewCreneauHoraire.class)
-	public List<CreneauHoraire> findByRdv(@PathVariable Long id) {
-	return creneauRepo.findByRdv(id);
-	}
-	
-	@GetMapping("/by-plageHoraire/{id}")
-	@JsonView(Views.ViewCreneauHoraire.class)
-	public List<CreneauHoraire> findByPlageHoraire(@PathVariable Long id) {
-	return creneauRepo.findByPlageHoraire(id);
-	}
+//	@GetMapping("/by-Rdv/{id}")
+//	@JsonView(Views.ViewCreneauHoraire.class)
+//	public List<CreneauHoraire> findByRdv(@PathVariable Long id) {
+//	return creneauRepo.findByRdv(id);
+//	}
+//	
+//	@GetMapping("/by-plageHoraire/{id}")
+//	@JsonView(Views.ViewCreneauHoraire.class)
+//	public List<CreneauHoraire> findByPlageHoraire(@PathVariable Long id) {
+//	return creneauRepo.findByPlageHoraire(id);
+//	}
 }

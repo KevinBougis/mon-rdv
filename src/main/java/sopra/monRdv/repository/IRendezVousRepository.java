@@ -10,7 +10,7 @@ import sopra.monRdv.model.RendezVous;
 
 public interface IRendezVousRepository extends JpaRepository<RendezVous, Long>{
 	
-	@Query("select rdv from RendezVous rdv join rdv.CompteUtilisateur cu where cu.id = :id")
-	List<RendezVous> findByPraticienId(@Param("id")Long id);
+//	@Query("select rdv from RendezVous rdv join rdv.CompteUtilisateur cu where cu.id = :id")
+//	List<RendezVous> findByPraticienId(@Param("id")Long id);
 
 }

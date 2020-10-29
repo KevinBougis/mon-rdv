@@ -82,9 +82,9 @@ public class CompteUtilisateurRestController {
 	return userRepo.findBySpecialite(specialite);
 	}
 	
-	@GetMapping("/by-Ville/{ville}")
-	@JsonView(Views.ViewCompteUtilisateur.class)
-	public List<CompteUtilisateur> findByVille(@PathVariable String ville) {
-	return userRepo.findByVille(ville);
-	}
+//	@GetMapping("/by-Ville/{ville}")
+//	@JsonView(Views.ViewCompteUtilisateur.class)
+//	public List<CompteUtilisateur> findByVille(@PathVariable String ville) {
+//	return userRepo.findByVille(ville);
+//	}
 }
