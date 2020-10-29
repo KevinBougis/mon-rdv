@@ -4,10 +4,10 @@ import {PlageHoraire} from "./PlageHoraire";
 
 export class CreneauHoraire {
 
-  id:number;
-  version:number;
-  dtDebut:Date;
-  dtFin:Date;
+  id: number;
+  version: number;
+  dtDebut: Date;
+  dtFin: Date;
 
   rdvs: Array<RendezVous>;
   plages: Array<PlageHoraire>;

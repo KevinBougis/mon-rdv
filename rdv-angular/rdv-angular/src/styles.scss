@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+body, html  {
+  margin: 0;
+  /* Image */
+  background: url(C:/java/workspace/mon-rdv/rdv-angular/rdv-angular/src/assets/Images/salleAttente.jpg);
+  //background: url(/src/assets/images/testBG.png);
+
+  /*  Hauteur  */
+  height: 100%;
+
+  /* Centrer */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
