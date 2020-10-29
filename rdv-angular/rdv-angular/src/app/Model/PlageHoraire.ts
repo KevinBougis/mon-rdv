@@ -1,5 +1,6 @@
 import {RendezVous} from "./RendezVous";
 import {CreneauHoraire} from "./CreneauHoraire";
+import {Lieu} from "./Lieu";
 
 export class PlageHoraire {
   id:number;

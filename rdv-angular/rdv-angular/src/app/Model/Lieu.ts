@@ -1,4 +1,6 @@
 import {CompteUtilisateur} from './CompteUtilisateur';
+import {MotifConsultation} from "./MotifConsultation";
+import {PlageHoraire} from "./PlageHoraire";
 
 export class Lieu {
   id: number;

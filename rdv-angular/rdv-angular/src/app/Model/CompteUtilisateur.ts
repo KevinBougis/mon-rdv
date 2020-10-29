@@ -1,3 +1,6 @@
+import {RendezVous} from "./RendezVous";
+import {Lieu} from "./Lieu";
+
 export class CompteUtilisateur{
   id: number;
   version: number;

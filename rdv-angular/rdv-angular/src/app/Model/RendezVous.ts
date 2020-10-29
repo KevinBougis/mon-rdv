@@ -1,6 +1,7 @@
 import {PlageHoraire} from "./PlageHoraire";
 import {MotifConsultation} from "./MotifConsultation";
 import {CreneauHoraire} from "./CreneauHoraire";
+import {CompteUtilisateur} from "./CompteUtilisateur";
 
 export class RendezVous {
   id:number;
