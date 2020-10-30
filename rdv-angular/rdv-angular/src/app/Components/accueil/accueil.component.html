@@ -1,57 +1,57 @@
-<!--<div id="header-wrapper">-->
-<!--  <div id="banner" class="container">-->
-<!--    <div class="title">-->
-<!--      <h2>MON-RDV</h2>-->
-<!--      <span class="byline"><h3>L'outil de gestion et de prise de rendez-vous médicaux idéal que vous soyiez patient ou praticien.</h3></span>-->
-<!--    </div>-->
-<!--    <ul class="actions">-->
-<!--      <li><a href="#" class="button mr-5" data-toggle="modal" data-target="#connexion"><h1>Connexion</h1></a>-->
-<!--        <a href="#" class="button" data-toggle="modal" data-target="#choixinscription" (click)="add()"><h1>Inscription</h1></a></li>-->
-<!--    </ul>-->
-<!--  </div>-->
-<!--</div>-->
+<div id="header-wrapper">
+  <div id="banner" class="container">
+    <div class="title">
+      <h2>MON-RDV</h2>
+      <span class="byline"><h3>L'outil de gestion et de prise de rendez-vous médicaux idéal que vous soyiez patient ou praticien.</h3></span>
+    </div>
+    <ul class="actions">
+      <li><a href="#" class="button mr-5" data-toggle="modal" data-target="#connexion"><h1>Connexion</h1></a>
+        <a href="#" class="button" data-toggle="modal" data-target="#choixinscription" (click)="add()"><h1>Inscription</h1></a></li>
+    </ul>
+  </div>
+</div>
 
-<!--&lt;!&ndash;Modal Connexion&ndash;&gt;-->
+<!--Modal Connexion-->
 
-<!--<div class="container">-->
-<!--  <div class="row">-->
-<!--    <div class="col-md-12 d-flex flex-column justify-content-center">-->
-<!--      <div class="row">-->
-<!--        <div class="col-lg-6 col-md-8 mx-auto">-->
-<!--          <div id="connexion" class="modal fade">-->
-<!--            <div class="modal-dialog">-->
-<!--              <div class="modal-content">-->
-<!--                <div class="card-header bg-primary text-white">-->
-<!--                  <h3>Connexion</h3>-->
-<!--                </div>-->
-<!--                <div class="card-body">-->
-<!--                  <div class="form-group">-->
-<!--                    <label for="identifiantForm">Identifiant</label>-->
-<!--                    <input type="text" class="form-control" id="identifiantForm" name="identifiantForm" style="border-radius: 25px" [(ngModel)]="userForm.identifiant" placeholder="Entrez votre identifiant">-->
-<!--                  </div>-->
-<!--                  <div class="form-group">-->
-<!--                    <label for="mdpForm">Mot de Passe</label>-->
-<!--                    <div class="input_container">-->
-<!--                      <input type="text" class="form-control" id="mdpForm" name="mdpForm" style="border-radius: 25px" [(ngModel)]="userForm.mdp" placeholder="Entrez votre mot de passe">-->
-<!--                      <span class="input_icon">-->
-<!--                      </span>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <div class="col-md-12 text-center ">-->
-<!--                    <button data-dismiss="modal" data-target="#connexion" class=" btn btn-block btn-dark tx-tfm "-->
-<!--                            style="border-radius: 50px">-->
-<!--&lt;!&ndash;                            (click)="connexion()">&ndash;&gt;-->
-<!--                      Connexion</button>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 d-flex flex-column justify-content-center">
+      <div class="row">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <div id="connexion" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="card-header bg-primary text-white">
+                  <h3>Connexion</h3>
+                </div>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="identifiantForm">Identifiant</label>
+                    <input type="text" class="form-control" id="identifiantForm" name="identifiantForm" style="border-radius: 25px" [(ngModel)]="userForm.identifiant" placeholder="Entrez votre identifiant">
+                  </div>
+                  <div class="form-group">
+                    <label for="mdpForm">Mot de Passe</label>
+                    <div class="input_container">
+                      <input type="text" class="form-control" id="mdpForm" name="mdpForm" style="border-radius: 25px" [(ngModel)]="userForm.mdp" placeholder="Entrez votre mot de passe">
+                      <span class="input_icon">
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-md-12 text-center ">
+                    <button data-dismiss="modal" data-target="#connexion" class=" btn btn-block btn-dark tx-tfm "
+                            style="border-radius: 50px">
+<!--                            (click)="connexion()">-->
+                      Connexion</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!--Modal choix inscription-->
 <form method="post">
@@ -145,25 +145,25 @@
                               <button type="submit" class="col-md-12 text-center btn-success" data-toggle="modal" data-target="#connexion" data-dismiss="modal"
                                     (click)="save()">
 
-<!--                              Inscription</button>-->
-<!--                              <button class="col-md-12 text-center btn-warning" data-dismiss="modal" data-target="#inscription" >-->
-<!--                                Retour-->
-<!--                              </button>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</form>-->
+                              Inscription</button>
+                              <button class="col-md-12 text-center btn-warning" data-dismiss="modal" data-target="#inscription" >
+                                Retour
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 
 
   <!--Modal Inscription Praticien-->
@@ -224,22 +224,22 @@
                                 <button type="submit" class="col-md-12 text-center btn-success" data-toggle="modal" data-target="#connexion" data-dismiss="modal"
                                   (click)="save()">
 
-<!--                                  Inscription</button>-->
-<!--                                <button class="col-md-12 text-center btn-warning" data-dismiss="modal" data-target="#inscription" >-->
-<!--                                  Retour-->
-<!--                                </button>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--  </form>-->
+                                  Inscription</button>
+                                <button class="col-md-12 text-center btn-warning" data-dismiss="modal" data-target="#inscription" >
+                                  Retour
+                                </button>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </form>

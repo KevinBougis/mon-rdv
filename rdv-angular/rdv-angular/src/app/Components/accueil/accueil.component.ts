@@ -24,37 +24,8 @@ export class AccueilComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // show(): void {
-  //   console.log(this.userForm);
-  // }
-  //
-  // add(): void {
-  //   this.userForm = new CompteUtilisateur();
-  //
-  // }
-  //
-  // type(): void {
-  //   if (this.userForm.typeUtilisateur === 'Patient') {
-  //     this.userForm = new CompteUtilisateur(null, null, this.userForm.typeUtilisateur);
-  //     console.log(this.userForm);
-  //     console.log(this.userForm.typeUtilisateur);
-  //   } else if (this.userForm.typeUtilisateur === 'Praticien') {
-  //     this.userForm = new CompteUtilisateur(null, null, this.userForm.typeUtilisateur);
-  //     console.log(this.userForm.typeUtilisateur);
-  //   }
-  // }
 
-  // save(userForm): void {
-  //     this.accueilService.newUser(this.userForm).subscribe(resp => {
-  //         this.accueilService.load();
-  //         this.userForm = null;
-  //       },
-  //       error => console.log(error)
-  //     )
-  //     ;
-  //   }
 
-  }
 
   type(): void {
     if (this.userForm.typeUtilisateur === 'Patient') {
