@@ -54,6 +54,13 @@ public class CompteUtilisateurRestController {
 		}	
 	}
 	
+	@GetMapping("/by-identifiant-and-mot-de-passe/{identifiant}:{motDePasse}")
+	@JsonView(Views.ViewCompteUtilisateur.class)
+	public CompteUtilisateur findByIdentifiantAndMotDePasse(@PathVariable String identifiant, @PathVariable String motDePasse){
+		return userRepo.findByIdentifiantAndMotDePasse(identifiant, motDePasse);
+	}
+	
+	
 	@PostMapping("")
 	@JsonView(Views.ViewCompteUtilisateur.class)
 	public CompteUtilisateur create(@RequestBody CompteUtilisateur user) {

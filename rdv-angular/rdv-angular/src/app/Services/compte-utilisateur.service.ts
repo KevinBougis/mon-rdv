@@ -8,13 +8,13 @@ import {Observable} from "rxjs";
 })
 export class CompteUtilisateurService {
 
-  public users:Array<CompteUtilisateur> = new Array<CompteUtilisateur>();
-  constructor(private http:HttpClient) {
+  public users: Array<CompteUtilisateur> = new Array<CompteUtilisateur>();
+  constructor(private http: HttpClient) {
 this.load();
   }
 
   load() {
-    this.http.get<Array<CompteUtilisateur>>("http://localhost:8080/api/user").subscribe(resp => {
+    this.http.get<Array<CompteUtilisateur>>('http://localhost:8080/api/user').subscribe(resp => {
       this.users = resp;
     }, error => console.log(error))
   }
@@ -24,19 +24,19 @@ this.load();
   }
 
   findById(id: number): Observable<CompteUtilisateur> {
-    return this.http.get<CompteUtilisateur>("http://localhost:8080/api/user/" + id);
+    return this.http.get<CompteUtilisateur>('http://localhost:8080/api/user/' + id);
   }
 
   create(user: CompteUtilisateur) {
-    return this.http.post<CompteUtilisateur>("http://localhost:8080/api/user", user);
+    return this.http.post<CompteUtilisateur>('http://localhost:8080/api/user', user);
   }
 
   modify(user: CompteUtilisateur) {
-    return this.http.put<CompteUtilisateur>("http://localhost:8080/api/user/" + user.id, user);
+    return this.http.put<CompteUtilisateur>('http://localhost:8080/api/user/' + user.id, user);
   }
 
   deleteById(id: number) {
-    this.http.delete("http://localhost:8080/api/user/" + id).subscribe(resp => this.load(), error => console.log(error))
+    this.http.delete('http://localhost:8080/api/user/' + id).subscribe(resp => this.load(), error => console.log(error))
   }
 
   findBySpecialite(specialite: string): Observable<Array<CompteUtilisateur>> {
