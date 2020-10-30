@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {CompteUtilisateur} from "../../Model/CompteUtilisateur";
-import {CommonService} from "../../Services/common.service";
-import {CompteUtilisateurService} from "../../Services/compte-utilisateur.service";
+import {CompteUtilisateur} from '../../Model/CompteUtilisateur';
+import {CommonService} from '../../Services/common.service';
+import {CompteUtilisateurService} from '../../Services/compte-utilisateur.service';
 
 @Component({
   selector: 'app-prendre-rdv',
@@ -10,16 +10,16 @@ import {CompteUtilisateurService} from "../../Services/compte-utilisateur.servic
 })
 export class PrendreRDVComponent implements OnInit {
   praticienList: Array<CompteUtilisateur> = new Array<CompteUtilisateur>();
-  nomPraticien : string='';
-  nomPraticienList:Array<String>=new Array<String>();
+  nomPraticien = '';
+  nomPraticienList: Array<String> = new Array<String>();
 
-  constructor(private commonService:CommonService,private compteUtilisateurService:CompteUtilisateurService) {
+  constructor(private commonService: CommonService, private compteUtilisateurService: CompteUtilisateurService) {
 
-  this.compteUtilisateurService.findByTypeUtilisateur("Praticien").subscribe(resp => {
+  this.compteUtilisateurService.findByTypeUtilisateur('Praticien').subscribe(resp => {
       this.compteUtilisateurService.users = resp;
     }, error => console.log(error));
 
-    for(let praticien of this.compteUtilisateurService.findAll()){
+  for (const praticien of this.compteUtilisateurService.findAll()){
         this.nomPraticienList.push(praticien.nom);
       }
 

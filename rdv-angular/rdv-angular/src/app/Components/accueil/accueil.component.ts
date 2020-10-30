@@ -24,7 +24,13 @@ export class AccueilComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  show(): void {
+    console.log(this.userForm);
+  }
 
+add(): void {
+    this.userForm = new CompteUtilisateur();
+}
 
 
   type(): void {
