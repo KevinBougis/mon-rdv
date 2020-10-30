@@ -15,6 +15,7 @@ import javax.persistence.Version;
 import com.fasterxml.jackson.annotation.JsonView;
 	
 @Entity
+
 public class CompteUtilisateur {
 	
 	@Id

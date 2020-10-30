@@ -16,13 +16,4 @@ export class AccueilService {
       this.utilisateurs = resp;
     }, error => console.log(error));
   }
-
-  newUser(utilisateur: CompteUtilisateur): void{
-  this.http.post<CompteUtilisateur>('http://localhost:8080/CompteUtilisateur', this.utilisateur);
-  }
 }
-//
-//   authentification(this.utilisateur: CompteUtilisateur) {
-//     return this.http.post<CompteUtilisateur>("http://localhost:8080/CompteUtilisateur", this.utilisateur);
-//   }
-//   }

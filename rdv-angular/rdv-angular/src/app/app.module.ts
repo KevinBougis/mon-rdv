@@ -8,7 +8,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { AccueilComponent } from './Components/accueil/accueil.component';
 import {RouterModule} from '@angular/router';
 import { PrendreRDVComponent } from './Components/prendre-rdv/prendre-rdv.component';
-import {Ng2CompleterModule} from "ng2-completer";
+import {Ng2CompleterModule} from 'ng2-completer';
+import {NgModule} from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import {Ng2CompleterModule} from "ng2-completer";
     FormsModule,
     HttpClientModule,
     RouterModule,
-    Ng2CompleterModule
+    Ng2CompleterModule,
     MatButtonToggleModule,
     MatSelectModule,
   ],

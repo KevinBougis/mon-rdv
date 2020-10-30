@@ -16,6 +16,9 @@ public interface ICompteUtilisateurRepository extends JpaRepository<CompteUtilis
 	
 	List<CompteUtilisateur> findByTypeUtilisateur(TypeUtilisateur typeUtilisateur);
 	
+	@Query("select cu from CompteUtilisateur cu where cu.identifiant = :identifiant and cu.mdp = :motDePasse")
+	CompteUtilisateur findByIdentifiantAndMotDePasse(@Param("identifiant") String identifiant, @Param("motDePasse") String motDePasse);
+	
 //	@Query("select cu from CompteUtilisateur cu join cu.lieu l  where l.ville = :town")
 //	List<CompteUtilisateur> findByVille(@Param("town")String ville);
 }
