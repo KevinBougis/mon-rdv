@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CompteUtilisateur} from '../../Model/CompteUtilisateur';
 import {Router} from '@angular/router';
-import {AccueilService} from '../../Services/accueil.service';
 // import {AccueilService} from '../../Services/accueil.service';
 // import {SessionService} from '../../Services/session.service';
 
@@ -14,7 +13,7 @@ export class AccueilComponent implements OnInit {
   userForm: CompteUtilisateur = new CompteUtilisateur();
 
   constructor(
-    private accueilService: AccueilService
+
     // , private sessionService: SessionService
   ) {
   }
@@ -22,35 +21,35 @@ export class AccueilComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  show(): void {
-    console.log(this.userForm);
-  }
+  // show(): void {
+  //   console.log(this.userForm);
+  // }
+  //
+  // add(): void {
+  //   this.userForm = new CompteUtilisateur();
+  //
+  // }
+  //
+  // type(): void {
+  //   if (this.userForm.typeUtilisateur === 'Patient') {
+  //     this.userForm = new CompteUtilisateur(null, null, this.userForm.typeUtilisateur);
+  //     console.log(this.userForm);
+  //     console.log(this.userForm.typeUtilisateur);
+  //   } else if (this.userForm.typeUtilisateur === 'Praticien') {
+  //     this.userForm = new CompteUtilisateur(null, null, this.userForm.typeUtilisateur);
+  //     console.log(this.userForm.typeUtilisateur);
+  //   }
+  // }
 
-  add(): void {
-    this.userForm = new CompteUtilisateur();
-
-  }
-
-  type(): void {
-    if (this.userForm.typeUtilisateur === 'Patient') {
-      this.userForm = new CompteUtilisateur(null, null, this.userForm.typeUtilisateur);
-      console.log(this.userForm);
-      console.log(this.userForm.typeUtilisateur);
-    } else if (this.userForm.typeUtilisateur === 'Praticien') {
-      this.userForm = new CompteUtilisateur(null, null, this.userForm.typeUtilisateur);
-      console.log(this.userForm.typeUtilisateur);
-    }
-  }
-
-  save(userForm): void {
-      this.accueilService.newUser(this.userForm).subscribe(resp => {
-          this.accueilService.load();
-          this.userForm = null;
-        },
-        error => console.log(error)
-      )
-      ;
-    }
+  // save(userForm): void {
+  //     this.accueilService.newUser(this.userForm).subscribe(resp => {
+  //         this.accueilService.load();
+  //         this.userForm = null;
+  //       },
+  //       error => console.log(error)
+  //     )
+  //     ;
+  //   }
 
   // connexion() {
   //   console.log(this.userForm);

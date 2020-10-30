@@ -19,7 +19,6 @@ export class PrendreRDVComponent implements OnInit {
       this.compteUtilisateurService.users = resp;
     }, error => console.log(error));
 
-this.commonService.findAllTypeUtilisateur()
     for(let praticien of this.compteUtilisateurService.findAll()){
         this.nomPraticienList.push(praticien.nom);
       }
@@ -31,6 +30,7 @@ this.commonService.findAllTypeUtilisateur()
   }
 
   list(): Array<CompteUtilisateur> {
+    console.log(this.compteUtilisateurService.findAll());
     return this.compteUtilisateurService.findAll();
   }
 }

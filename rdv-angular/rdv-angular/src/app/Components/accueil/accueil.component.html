@@ -1,96 +1,94 @@
-<div id="header-wrapper">
-  <div id="banner" class="container">
-    <div class="title">
-      <h2>MON-RDV</h2>
-      <span class="byline"><h3>L'outil de gestion et de prise de rendez-vous médicaux idéal que vous soyiez patient ou praticien.</h3></span>
-    </div>
-    <ul class="actions">
-      <li><a href="#" class="button mr-5" data-toggle="modal" data-target="#connexion"><h1>Connexion</h1></a>
-        <a href="#" class="button" data-toggle="modal" data-target="#choixinscription" (click)="add()"><h1>Inscription</h1></a></li>
-    </ul>
-  </div>
-</div>
+<!--<div id="header-wrapper">-->
+<!--  <div id="banner" class="container">-->
+<!--    <div class="title">-->
+<!--      <h2>MON-RDV</h2>-->
+<!--      <span class="byline"><h3>L'outil de gestion et de prise de rendez-vous médicaux idéal que vous soyiez patient ou praticien.</h3></span>-->
+<!--    </div>-->
+<!--    <ul class="actions">-->
+<!--      <li><a href="#" class="button mr-5" data-toggle="modal" data-target="#connexion"><h1>Connexion</h1></a>-->
+<!--        <a href="#" class="button" data-toggle="modal" data-target="#choixinscription" (click)="add()"><h1>Inscription</h1></a></li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</div>-->
 
-<!--Modal Connexion-->
+<!--&lt;!&ndash;Modal Connexion&ndash;&gt;-->
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 d-flex flex-column justify-content-center">
-      <div class="row">
-        <div class="col-lg-6 col-md-8 mx-auto">
-          <div id="connexion" class="modal fade">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="card-header bg-primary text-white">
-                  <h3>Connexion</h3>
-                </div>
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="identifiantForm">Identifiant</label>
-                    <input type="text" class="form-control" id="identifiantForm" name="identifiantForm" style="border-radius: 25px" [(ngModel)]="userForm.identifiant" placeholder="Entrez votre identifiant">
-                  </div>
-                  <div class="form-group">
-                    <label for="mdpForm">Mot de Passe</label>
-                    <div class="input_container">
-                      <input type="text" class="form-control" id="mdpForm" name="mdpForm" style="border-radius: 25px" [(ngModel)]="userForm.mdp" placeholder="Entrez votre mot de passe">
-                      <span class="input_icon">
-                      </span>
-                    </div>
-                  </div>
-                  <div class="col-md-12 text-center ">
-                    <button data-dismiss="modal" data-target="#connexion" class=" btn btn-block btn-dark tx-tfm "
-                            style="border-radius: 50px">
-<!--                            (click)="connexion()">-->
-                      Connexion</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<!--<div class="container">-->
+<!--  <div class="row">-->
+<!--    <div class="col-md-12 d-flex flex-column justify-content-center">-->
+<!--      <div class="row">-->
+<!--        <div class="col-lg-6 col-md-8 mx-auto">-->
+<!--          <div id="connexion" class="modal fade">-->
+<!--            <div class="modal-dialog">-->
+<!--              <div class="modal-content">-->
+<!--                <div class="card-header bg-primary text-white">-->
+<!--                  <h3>Connexion</h3>-->
+<!--                </div>-->
+<!--                <div class="card-body">-->
+<!--                  <div class="form-group">-->
+<!--                    <label for="identifiantForm">Identifiant</label>-->
+<!--                    <input type="text" class="form-control" id="identifiantForm" name="identifiantForm" style="border-radius: 25px" [(ngModel)]="userForm.identifiant" placeholder="Entrez votre identifiant">-->
+<!--                  </div>-->
+<!--                  <div class="form-group">-->
+<!--                    <label for="mdpForm">Mot de Passe</label>-->
+<!--                    <div class="input_container">-->
+<!--                      <input type="text" class="form-control" id="mdpForm" name="mdpForm" style="border-radius: 25px" [(ngModel)]="userForm.mdp" placeholder="Entrez votre mot de passe">-->
+<!--                      <span class="input_icon">-->
+<!--                      </span>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                  <div class="col-md-12 text-center ">-->
+<!--                    <button data-dismiss="modal" data-target="#connexion" class=" btn btn-block btn-dark tx-tfm "-->
+<!--                            style="border-radius: 50px">-->
+<!--&lt;!&ndash;                            (click)="connexion()">&ndash;&gt;-->
+<!--                      Connexion</button>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 
-<!--Modal choix inscription-->
-<form method="post">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 d-flex flex-column justify-content-center">
-        <div class="row">
-          <div class="col-lg-6 col-md-8 mx-auto">
-            <div class="card mt-3">
-              <div id="choixinscription" class="modal fade">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="card-header bg-primary text-white">
-                      <h3>Création de compte</h3>
-                    </div>
-                    <div class="card-body">
-                      <div class= "form-group text-center">
-                        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [(ngModel)]="userForm.typeUtilisateur">
-                          <mat-button-toggle class="btn btn-primary" data-toggle="modal" data-target="#inscriptionpatient" (click)="type()"
-                                             value="Patient">Patient</mat-button-toggle>
-                          <br>
-                          <br>
-                          <mat-button-toggle class="btn btn-primary" data-toggle="modal" data-target="#inscriptionpraticien" (click)="type()"
-                                             value="Praticien">Praticien</mat-button-toggle>
-                        </mat-button-toggle-group>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
-
-
+<!--&lt;!&ndash;Modal choix inscription&ndash;&gt;-->
+<!--<form method="post">-->
+<!--  <div class="container">-->
+<!--    <div class="row">-->
+<!--      <div class="col-md-12 d-flex flex-column justify-content-center">-->
+<!--        <div class="row">-->
+<!--          <div class="col-lg-6 col-md-8 mx-auto">-->
+<!--            <div class="card mt-3">-->
+<!--              <div id="choixinscription" class="modal fade">-->
+<!--                <div class="modal-dialog">-->
+<!--                  <div class="modal-content">-->
+<!--                    <div class="card-header bg-primary text-white">-->
+<!--                      <h3>Création de compte</h3>-->
+<!--                    </div>-->
+<!--                    <div class="card-body">-->
+<!--                      <div class= "form-group text-center">-->
+<!--                        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [(ngModel)]="userForm.typeUtilisateur">-->
+<!--                          <mat-button-toggle class="btn btn-primary" data-toggle="modal" data-target="#inscriptionpatient" (click)="type()"-->
+<!--                                             value="Patient">Patient</mat-button-toggle>-->
+<!--                          <br>-->
+<!--                          <br>-->
+<!--                          <mat-button-toggle class="btn btn-primary" data-toggle="modal" data-target="#inscriptionpraticien" (click)="type()"-->
+<!--                                             value="Praticien">Praticien</mat-button-toggle>-->
+<!--                        </mat-button-toggle-group>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</form>-->
 
 
 
@@ -99,147 +97,149 @@
 
 
 
-<!--Modal Inscription Patient-->
-<form method="post">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 d-flex flex-column justify-content-center">
-        <div class="row">
-          <div class="col-lg-6 col-md-8 mx-auto">
-            <div class="card mt-3">
-              <div id="inscriptionpatient" class="modal fade">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="card-header bg-primary text-white">
-                      <h3>Création de compte Patient</h3>
-                    </div>
-                    <div class="card-body">
-                      <div class="form-group">
-                        <label for="nom">Nom:</label>
-                        <input type="text" class="form-control" id="nom" name="nom" style="border-radius: 25px" [(ngModel)]="userForm.nom">
-                      </div>
-                      <div class="form-group">
-                        <label for="prenom">Prénom:</label>
-                        <input type="text" class="form-control" id="prenom" name="prenom" style="border-radius: 25px" [(ngModel)]="userForm.prenom">
-                      </div>
-                      <div class="form-group">
-                        <label for="mail">Email:</label>
-                        <input type="email" class="form-control" id="mail" name="mail" style="border-radius: 25px" [(ngModel)]="userForm.mail">
-                      </div>
-                      <div class="form-group">
-                        <label for="telephone">Téléphone:</label>
-                        <input type="text" class="form-control" id="telephone" name="telephone" style="border-radius: 25px" [(ngModel)]="userForm.telephone">
-                      </div>
-                      <div class="form-group">
-                        <label for="identifiant">Identifiant</label>
-                        <input type="text" class="form-control" id="identifiant" name="identifiant" style="border-radius: 25px" [(ngModel)]="userForm.identifiant">
-                      </div>
-                      <div class="form-group">
-                        <label for="mdp">Mot de Passe</label>
-                        <div class="input_container">
-                          <input type="text" class="form-control" id="mdp" name="mdp" style="border-radius: 25px" [(ngModel)]="userForm.mdp">
-                          <span class="input_icon"></span>
-                          <br>
-                          <div>
-                            <div class="btn-group btn-group-lg">
-                              <button type="submit" class="col-md-12 text-center btn-success" data-toggle="modal" data-target="#connexion" data-dismiss="modal">
-<!--                                      (click)="save()">-->
-
-                              Inscription</button>
-                              <button class="col-md-12 text-center btn-warning" data-dismiss="modal" data-target="#inscription" >
-                                Retour
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
 
 
-  <!--Modal Inscription Praticien-->
-  <form method="post">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 d-flex flex-column justify-content-center">
-          <div class="row">
-            <div class="col-lg-6 col-md-8 mx-auto">
-              <div class="card mt-3">
-                <div id="inscriptionpraticien" class="modal fade">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="card-header bg-primary text-white">
-                        <h3>Création de compte Praticien</h3>
-                      </div>
-                      <div class="card-body">
-                        <div class="form-group">
-                          <label for="specialite">Spécialité:</label>
-                          <select class="form-control" id="specialite" name="specialite" style="border-radius: 25px" [(ngModel)]="userForm.specialite">
-                          <option>Gynécologue</option>
-                          <option>Dentiste</option>
-                          <option>Généraliste</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                          <label for="grade">Grade:</label>
-                          <select class="form-control" id="grade" name="grade" style="border-radius: 25px" [(ngModel)]="userForm.grade">
-                            <option value="Pr">Professeur</option>
-                            <option value="Dr">Docteur</option>
-                            <option value="SageFemme">Sage-Femme</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label for="nom">Nom:</label>
-                          <input type="text" class="form-control" id="nom_praticien" name="nom" style="border-radius: 25px" [(ngModel)]="userForm.nom">
-                        </div>
-                        <div class="form-group">
-                          <label for="prenom">Prénom:</label>
-                          <input type="text" class="form-control" id="prenom_praticien" name="prenom" style="border-radius: 25px" [(ngModel)]="userForm.prenom">
-                        </div>
-                        <div class="form-group">
-                          <label for="mail">Email:</label>
-                          <input type="email" class="form-control" id="mail_praticien" name="mail" style="border-radius: 25px" [(ngModel)]="userForm.mail">
-                        </div>
-                        <div class="form-group">
-                          <label for="identifiant">Identifiant</label>
-                          <input type="text" class="form-control" id="identifiant_praticien" name="identifiant" style="border-radius: 25px" [(ngModel)]="userForm.identifiant">
-                        </div>
-                        <div class="form-group">
-                          <label for="mdp">Mot de Passe</label>
-                          <div class="input_container">
-                            <input type="text" class="form-control" id="mdp_praticien" name="mdp" style="border-radius: 25px" [(ngModel)]="userForm.mdp">
-                            <span class="input_icon"></span>
-                            <br>
-                            <div>
-                              <div class="btn-group btn-group-lg">
-                                <button type="submit" class="col-md-12 text-center btn-success" data-toggle="modal" data-target="#connexion" data-dismiss="modal">
-                                  <!--                                      (click)="save()">-->
+<!--&lt;!&ndash;Modal Inscription Patient&ndash;&gt;-->
+<!--<form method="post">-->
+<!--  <div class="container">-->
+<!--    <div class="row">-->
+<!--      <div class="col-md-12 d-flex flex-column justify-content-center">-->
+<!--        <div class="row">-->
+<!--          <div class="col-lg-6 col-md-8 mx-auto">-->
+<!--            <div class="card mt-3">-->
+<!--              <div id="inscriptionpatient" class="modal fade">-->
+<!--                <div class="modal-dialog">-->
+<!--                  <div class="modal-content">-->
+<!--                    <div class="card-header bg-primary text-white">-->
+<!--                      <h3>Création de compte Patient</h3>-->
+<!--                    </div>-->
+<!--                    <div class="card-body">-->
+<!--                      <div class="form-group">-->
+<!--                        <label for="nom">Nom:</label>-->
+<!--                        <input type="text" class="form-control" id="nom" name="nom" style="border-radius: 25px" [(ngModel)]="userForm.nom">-->
+<!--                      </div>-->
+<!--                      <div class="form-group">-->
+<!--                        <label for="prenom">Prénom:</label>-->
+<!--                        <input type="text" class="form-control" id="prenom" name="prenom" style="border-radius: 25px" [(ngModel)]="userForm.prenom">-->
+<!--                      </div>-->
+<!--                      <div class="form-group">-->
+<!--                        <label for="mail">Email:</label>-->
+<!--                        <input type="email" class="form-control" id="mail" name="mail" style="border-radius: 25px" [(ngModel)]="userForm.mail">-->
+<!--                      </div>-->
+<!--                      <div class="form-group">-->
+<!--                        <label for="telephone">Téléphone:</label>-->
+<!--                        <input type="text" class="form-control" id="telephone" name="telephone" style="border-radius: 25px" [(ngModel)]="userForm.telephone">-->
+<!--                      </div>-->
+<!--                      <div class="form-group">-->
+<!--                        <label for="identifiant">Identifiant</label>-->
+<!--                        <input type="text" class="form-control" id="identifiant" name="identifiant" style="border-radius: 25px" [(ngModel)]="userForm.identifiant">-->
+<!--                      </div>-->
+<!--                      <div class="form-group">-->
+<!--                        <label for="mdp">Mot de Passe</label>-->
+<!--                        <div class="input_container">-->
+<!--                          <input type="text" class="form-control" id="mdp" name="mdp" style="border-radius: 25px" [(ngModel)]="userForm.mdp">-->
+<!--                          <span class="input_icon"></span>-->
+<!--                          <br>-->
+<!--                          <div>-->
+<!--                            <div class="btn-group btn-group-lg">-->
+<!--                              <button type="submit" class="col-md-12 text-center btn-success" data-toggle="modal" data-target="#connexion" data-dismiss="modal">-->
+<!--&lt;!&ndash;                                      (click)="save()">&ndash;&gt;-->
 
-                                  Inscription</button>
-                                <button class="col-md-12 text-center btn-warning" data-dismiss="modal" data-target="#inscription" >
-                                  Retour
-                                </button>
-                              </div>
-                            </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  </form>
+<!--                              Inscription</button>-->
+<!--                              <button class="col-md-12 text-center btn-warning" data-dismiss="modal" data-target="#inscription" >-->
+<!--                                Retour-->
+<!--                              </button>-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</form>-->
+
+
+<!--  &lt;!&ndash;Modal Inscription Praticien&ndash;&gt;-->
+<!--  <form method="post">-->
+<!--    <div class="container">-->
+<!--      <div class="row">-->
+<!--        <div class="col-md-12 d-flex flex-column justify-content-center">-->
+<!--          <div class="row">-->
+<!--            <div class="col-lg-6 col-md-8 mx-auto">-->
+<!--              <div class="card mt-3">-->
+<!--                <div id="inscriptionpraticien" class="modal fade">-->
+<!--                  <div class="modal-dialog">-->
+<!--                    <div class="modal-content">-->
+<!--                      <div class="card-header bg-primary text-white">-->
+<!--                        <h3>Création de compte Praticien</h3>-->
+<!--                      </div>-->
+<!--                      <div class="card-body">-->
+<!--                        <div class="form-group">-->
+<!--                          <label for="specialite">Spécialité:</label>-->
+<!--                          <select class="form-control" id="specialite" name="specialite" style="border-radius: 25px" [(ngModel)]="userForm.specialite">-->
+<!--                          <option>Gynécologue</option>-->
+<!--                          <option>Dentiste</option>-->
+<!--                          <option>Généraliste</option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                          <label for="grade">Grade:</label>-->
+<!--                          <select class="form-control" id="grade" name="grade" style="border-radius: 25px" [(ngModel)]="userForm.grade">-->
+<!--                            <option value="Pr">Professeur</option>-->
+<!--                            <option value="Dr">Docteur</option>-->
+<!--                            <option value="SageFemme">Sage-Femme</option>-->
+<!--                          </select>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                          <label for="nom">Nom:</label>-->
+<!--                          <input type="text" class="form-control" id="nom_praticien" name="nom" style="border-radius: 25px" [(ngModel)]="userForm.nom">-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                          <label for="prenom">Prénom:</label>-->
+<!--                          <input type="text" class="form-control" id="prenom_praticien" name="prenom" style="border-radius: 25px" [(ngModel)]="userForm.prenom">-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                          <label for="mail">Email:</label>-->
+<!--                          <input type="email" class="form-control" id="mail_praticien" name="mail" style="border-radius: 25px" [(ngModel)]="userForm.mail">-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                          <label for="identifiant">Identifiant</label>-->
+<!--                          <input type="text" class="form-control" id="identifiant_praticien" name="identifiant" style="border-radius: 25px" [(ngModel)]="userForm.identifiant">-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                          <label for="mdp">Mot de Passe</label>-->
+<!--                          <div class="input_container">-->
+<!--                            <input type="text" class="form-control" id="mdp_praticien" name="mdp" style="border-radius: 25px" [(ngModel)]="userForm.mdp">-->
+<!--                            <span class="input_icon"></span>-->
+<!--                            <br>-->
+<!--                            <div>-->
+<!--                              <div class="btn-group btn-group-lg">-->
+<!--                                <button type="submit" class="col-md-12 text-center btn-success" data-toggle="modal" data-target="#connexion" data-dismiss="modal">-->
+<!--                                  &lt;!&ndash;                                      (click)="save()">&ndash;&gt;-->
+
+<!--                                  Inscription</button>-->
+<!--                                <button class="col-md-12 text-center btn-warning" data-dismiss="modal" data-target="#inscription" >-->
+<!--                                  Retour-->
+<!--                                </button>-->
+<!--                              </div>-->
+<!--                            </div>-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--  </form>-->
