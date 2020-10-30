@@ -29,11 +29,11 @@ export class AccueilComponent implements OnInit {
 
   type(): void {
     if (this.userForm.typeUtilisateur === 'Patient') {
-      this.userForm = new CompteUtilisateur(null, null, this.userForm.typeUtilisateur);
+      this.userForm = new CompteUtilisateur(null, null, null, null, null, null, null, null, this.userForm.typeUtilisateur);
       console.log(this.userForm);
       console.log(this.userForm.typeUtilisateur);
     } else if (this.userForm.typeUtilisateur === 'Praticien') {
-      this.userForm = new CompteUtilisateur(null, null, this.userForm.typeUtilisateur);
+      this.userForm = new CompteUtilisateur(null, null, null, null, null, null, null, null, this.userForm.typeUtilisateur);
       console.log(this.userForm.typeUtilisateur);
     }
     $('#choixinscription').modal('hide');
