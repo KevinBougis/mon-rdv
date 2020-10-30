@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,12 +20,14 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import sopra.monRdv.model.CompteUtilisateur;
 import sopra.monRdv.model.Specialite;
+import sopra.monRdv.model.TypeUtilisateur;
 import sopra.monRdv.model.Views;
 import sopra.monRdv.repository.ICompteUtilisateurRepository;
 
 
 @RestController
 @RequestMapping("/api/user")
+@CrossOrigin("*")
 public class CompteUtilisateurRestController {
 
 	@Autowired
@@ -80,6 +83,12 @@ public class CompteUtilisateurRestController {
 	@JsonView(Views.ViewCompteUtilisateur.class)
 	public List<CompteUtilisateur> findBySpecialite(@PathVariable Specialite specialite) {
 	return userRepo.findBySpecialite(specialite);
+	}
+	
+	@GetMapping("/by-TypeUtilisateur/{typeUtilisateur}")
+	@JsonView(Views.ViewCompteUtilisateur.class)
+	public List<CompteUtilisateur> findByTypeUtilisateur(@PathVariable TypeUtilisateur typeUtilisateur) {
+	return userRepo.findByTypeUtilisateur(typeUtilisateur);
 	}
 	
 //	@GetMapping("/by-Ville/{ville}")

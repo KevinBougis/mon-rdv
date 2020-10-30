@@ -1,0 +1,48 @@
+<div>
+  <div class="row justify-content-center align-items-center mt-4">
+    <div class="column" style="width: 5%;"></div>
+    <div class="column" style="width: 25%;">
+      <img src="assets/Images/drMaboule.jpg" class="rounded-circle img-fluid ml-2" alt="Responsive image"
+           style="width: 70%;"/>
+    </div>
+    <div class="column " style="width: 60%; text-align: center; align: middle;">
+      <h1 class="mb-4 mt-2">Rechercher un praticien</h1>
+    </div>
+  </div>
+</div>
+<!-- BLOC résultats + search  -->
+<div id="result" class="column justify-content-center align-items-center" style="width:60%; ">
+  <div id="searchFlore" class="row ml-1 justify-content-center" style="width:100%; height: 70px;">
+    <div class="column mt-3" style="width: 12%;">
+      <button id="btnSearch" class="btn float-right" style="background-color: #8bc34a; width: 100%">
+        <i class="fas fa-leaf" style="color: white"></i>
+      </button>
+    </div>
+    <div class="column mt-3" style="width: 77%;">
+      <!--              <input class="form-control" id="myInput" type="text" placeholder="Entrez le nom d'une flore" style="text-align: center; font-style: italic" [(ngModel)]="nomFlore">-->
+      <ng2-completer  [inputClass]="['completer-row','form-control']" [placeholder]="'Entrez le nom d\'un praticien'" [datasource]="nomPraticienList" [minSearchLength]="1" [(ngModel)]="nomPraticien"> </ng2-completer>
+    </div>
+  </div>
+
+
+  <!-- BLOC résultat  -->
+  <div id="result" class="column" style="width: 100%; border: none">
+    <div *ngFor="let praticien of list()">
+      <div class=" m-3">
+            <!-- BLOC Images  -->
+            <div class="row m-2 align-items-center">
+              <!-- BLOC Texte  -->
+              <div class="column align-middle" style="width: 80%;">
+                <h5>{{praticien.nom}}</h5>
+                <h5>{{praticien.prenom}}</h5>
+                <h5>{{praticien.typeUtilisateur}}</h5>
+                <h6 style="font-style: italic"></h6>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
